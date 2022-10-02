@@ -111,18 +111,7 @@
                             <div class="small-size-cate">
                                 <div class="row">
 
-<!--                                 
-                                    <div class="col-sm-6">
-                                        <div class="single-cat-item">
-                                            <figure class="category-thumb">
-                                                <a href="#"><img src="assets/img/jewellery-cat.jpg" alt="Men Category" class="img-fluid" /></a>
-
-                                                <figcaption class="category-name">
-                                                    <a href="#">Jewellery</a>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                    </div> -->
+                             
 
 
                                     <div class="col-sm-6">
@@ -159,11 +148,26 @@
                                                 <a href="#"><img src="assets/img/122604dadd24dbb24777003be2477880.jpg" alt="Men Category" class="img-fluid" /></a>
 
                                                 <figcaption class="category-name">
-                                                    <a href="./Glasses.php">Glasses</a>
+                                                    <a href="./category_page.php?catID=<?php echo $row['category_id']  ?>">Glasses</a>
                                                 </figcaption>
                                             </figure>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="col-sm-6">
+                                        <div class="single-cat-item">
+                                            <figure class="category-thumb">
+                                                <a href="#"><img src="assets/img/jewellery-cat.jpg" alt="Men Category" class="img-fluid" /></a>
+
+                                                <figcaption class="category-name">
+                                                    <a href="./all.php">All Categories</a>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div> 
+
 
 
 

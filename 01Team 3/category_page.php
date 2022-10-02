@@ -1,4 +1,13 @@
-<?php include "./inc/hedare.php"?>
+<?php include "./inc/hedare.php";
+
+
+  
+	 $cat_id=$_GET['catID'];
+
+
+
+
+?>
 
 
     <!--=== Bootstrap CSS ===-->
@@ -62,12 +71,30 @@ background-color: #17A2B8;
 
 
 				<ul style="font-size:large;font-weight:bold;" class="list-menu">
-				<li ><a style="color:black" href="./all.php">All  </a></li><br>
-				<li><a style="color:black" href="#">Watches </a></li><br>
-				<li><a style="color:black" href="./Perfumes.php">Perfumes  </a></li><br>
-				<li><a style="color:black" href="./Glasses.php">Glasses  </a></li><br>
-	
-				</ul>
+								<li><a style="color:black" href="./all.php">All </a></li><br>
+								<?php
+
+								$query = "SELECT * FROM category";
+								$conn->query($query);
+
+
+								if ($result = $conn->query($query)) {
+									while ($row = $result->fetch_assoc()) {
+
+
+								?>
+
+										<li><a style="color:black" href="./category_page.php?catID=<?php echo $row['category_id']  ?>"><?php echo $row['category_name'] ?></a></li><br>
+
+
+								<?php
+
+									}
+								}
+
+								?>
+
+							</ul>
 
 			</div> <!-- card-body.// -->
 		</div>
@@ -79,11 +106,23 @@ background-color: #17A2B8;
 				<h6 class="title"  style="font-size:x-large">Price range </h6>
 			</a>
 		</header>
+		<?php
+// $uri = $_SERVER['REQUEST_URI'];
+// echo $uri; // Outputs: URI
+ 
+// $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+ 
+// $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+// echo $url; // Outputs: Full URL
+ 
+// $query = $_SERVER['QUERY_STRING'];
+// echo $query; // Outputs: Query String
+?>
 
 
 		<div class="filter-content collapse show" id="collapse_3" >
 			<div class="card-body">
-				<form action="" method="GET">
+				<form action="<?php $url ?>" method="GET">
 				<!-- <input type="range" class="custom-range" min="0" max="100" name=""> -->
 				<div class="form-row">
 				<div class="form-group col-md-6">
@@ -95,6 +134,9 @@ background-color: #17A2B8;
 				  <input class="form-control" value="100000" Placeholder="$1,0000" type="number" name="max">
 				</div>
 				</div> <!-- form-row.// -->
+
+				<!-- <input type="hidden" name="current_url" value="<?php $url ?>" /> -->
+
 				<button class="btn btn-block btn-lg btn-info">Apply</button>	</form >
 			</div><!-- card-body.// -->
 		</div>
@@ -113,7 +155,7 @@ background-color: #17A2B8;
 <header class="border-bottom mb-4 pb-3">
 		<div class="form-inline">
 	            	<?php
-                       $query ="SELECT COUNT(product_id)FROM proudcts where catID=1";
+                       $query ="SELECT COUNT(product_id)FROM proudcts where catID='$cat_id'";
                        $conn->query($query);
 					   if ($result = $conn->query($query) ) {
 						$row = $result->fetch_assoc();}
@@ -139,10 +181,13 @@ $max=5000;
 if(isset($_GET['min']) && isset($_GET['max'])){
 	$min=$_GET['min'];
 	$max=$_GET['max'];
+	$cat_id=$_GET['current_url'];
+	echo $cat_id;
+	
 }
 
 
-$query = "SELECT * FROM proudcts where  catID=1 AND price BETWEEN $min AND $max ";
+$query = "SELECT * FROM proudcts where  catID='$cat_id' AND price BETWEEN $min AND $max ";
 $conn->query($query);
 
 
