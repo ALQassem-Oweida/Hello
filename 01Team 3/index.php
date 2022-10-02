@@ -120,7 +120,7 @@
                                                 <a href="#"><img src="assets/img/434_BANNER-CATEGORIE-FEMME-600X600PX.jpg" alt="Men Category" class="img-fluid" /></a>
 
                                                 <figcaption class="category-name">
-                                                    <a href="./Perfumes.php">Prfumes</a>
+                                                    <a href="./category_page.php?catID=2">Prfumes</a>
                                                 </figcaption>
                                             </figure>
                                         </div>
@@ -134,7 +134,7 @@
                                                 <a href="#"><img src="assets/img/watch-cat.jpg" alt="Men Category" class="img-fluid" /></a>
 
                                                 <figcaption class="category-name">
-                                                    <a href="./Watches.php">watches</a>
+                                                    <a href="./category_page.php?catID=1">watches</a>
                                                 </figcaption>
                                             </figure>
                                         </div>
@@ -148,7 +148,7 @@
                                                 <a href="#"><img src="assets/img/122604dadd24dbb24777003be2477880.jpg" alt="Men Category" class="img-fluid" /></a>
 
                                                 <figcaption class="category-name">
-                                                    <a href="./category_page.php?catID=<?php echo $row['category_id']  ?>">Glasses</a>
+                                                    <a href="./category_page.php?catID=3">Glasses</a>
                                                 </figcaption>
                                             </figure>
                                         </div>
